@@ -7,6 +7,7 @@ int q;
 struct Node {
     Node *p;
     int val;
+    int d; // depth
 };
 
 Node nodes[10000];
@@ -22,7 +23,14 @@ Node *find_root(int x) {
 void unite(int x, int y) {
     Node *xr = find_root(x);
     Node *yr = find_root(y);
-    xr->p = yr;
+    if(xr->d < yr -> d){
+        xr->p = yr;
+    } else {
+        yr->p = xr;
+        if(xr->d == yr -> d){
+            (xr->d)++;
+        }
+    }
 }
 
 bool same(int x, int y) {
@@ -36,6 +44,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         nodes[i].p = &nodes[i];
         nodes[i].val = i;
+        nodes[i].d = 0;
     }
     for (int j = 0; j < q; ++j) {
         int cmd, x, y;

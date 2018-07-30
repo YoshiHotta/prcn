@@ -3,29 +3,34 @@
 
 using namespace std;
 
-int N, W;
-int w[101], v[101];
-int dp[101][10001];
+int n = 3;
+int w[3] = {3, 4, 2};
+int v[3] = {4, 5, 3};
+int W = 7;
 
-int solve(int i, int j) {
-    if(i == -1) return 0;
+int dp[4][9];
 
-    int mm = INT_MIN;
-    for (int k = 0; k < j / w[i]; ++k) {
-        mm = max(mm, solve(i - 1, j - k * w[i]));
+void solve() {
+    for (int j = 0; j <= 8; j++) {
+        dp[0][j] = 0;
     }
-    return mm;
+    for (int i = 0; i <= 3; ++i) {
+        dp[i][0] = 0;
+    }
+
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= W; ++j) {
+            if (j >= w[i])
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - w[i]] + v[i]);
+            else
+                dp[i][j] = dp[i - 1][j];
+        }
+    }
 }
 
 int main() {
-    cin >> N >> W;
-    for (int i = 0; i < N; ++i) {
-        int a, b;
-        cin >> a >> b;
-        w[i] = a;
-        v[i] = b;
-    }
-    solve(N-1, W);
+    solve();
+    cout << dp[n][W] << endl;
+
     return 0;
-}
-*/
+}*/
