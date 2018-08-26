@@ -75,3 +75,17 @@ Union-Find木‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥‥�
     * priority_queue を使った実装  
 - GRL_1_C: All Pairs Shortest Path  
     * Warshall-Floyd  
+
+
+## AtCoder の類題
+- Fliptile (POJ No.3279)  
+<--> ABC 018 D バレンタインデー  
+WA
+
+
+- 例題 3-2-5　Physics Experiment (POJ No.3684)  
+<--> AGC 013 C Ants on a Circle  
+WA  
+
+- 例題 3-2-6　4 Values whose Sum is 0 (POJ No.2785)  
+<--> AOJ 0529 
